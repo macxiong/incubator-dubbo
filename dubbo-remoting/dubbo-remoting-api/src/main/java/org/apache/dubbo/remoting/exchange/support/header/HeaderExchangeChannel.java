@@ -111,6 +111,7 @@ final class HeaderExchangeChannel implements ExchangeChannel {
         req.setVersion(Version.getProtocolVersion());
         req.setTwoWay(true);
         req.setData(request);
+        //构造defaultFuture绑定当前channel&调用请求参数
         DefaultFuture future = DefaultFuture.newFuture(channel, req, timeout);
         try {
             channel.send(req);
